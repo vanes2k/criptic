@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React from 'react';
 import { useState } from 'react';
 import NextAuth from 'next-auth';
@@ -21,8 +19,7 @@ const LoginPage: NextPageWithLayout = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-            'Accept': 'application/json',
-
+          'Accept' : 'application/json'
         },
         body: JSON.stringify({
           email,
@@ -31,7 +28,7 @@ const LoginPage: NextPageWithLayout = () => {
       });
 
       if (response.ok) {
-        routerr.push('/'); 
+        routerr.push('/');
       } else {
         console.error('Ошибка при отправке запроса');
       }
@@ -54,22 +51,24 @@ const LoginPage: NextPageWithLayout = () => {
                     <form>
                       <div className="input-group mb-3">
                         <input
-                          id="email"
                           type="email"
                           required
                           name="email"
                           className="form-control"
                           placeholder="Электронная почта"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
                       <div className="input-group mb-4">
                         <input
-                          id="password"
                           type="password"
                           name="password"
                           className="form-control"
                           placeholder="Пароль"
                           required
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
                       <div className="form-group text-left">
@@ -84,9 +83,8 @@ const LoginPage: NextPageWithLayout = () => {
                       </button>
                     </form>
                     <p className="text-muted mb-0">
-                      У вас ещё нету аккаунта{' '}
+                      У вас ещё нету аккаунта
                       <a href="auth-signin-v4.html" className="{styles.red}">
-                        {' '}
                         Зарегистрировать
                       </a>
                     </p>
@@ -102,4 +100,3 @@ const LoginPage: NextPageWithLayout = () => {
 };
 
 export default LoginPage;
->>>>>>> Stashed changes
